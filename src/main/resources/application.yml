@@ -3,10 +3,10 @@ server:
 spring:
   datasource: #数据源
     driver-class-name: com.mysql.jdbc.Driver
-    username: ypc
-    password: 123
-    url:  jdbc:mysql://localhost:3306/premission?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
-  thymeleaf:
+    username: root
+    password: 123@qwe
+    url:  jdbc:mysql://127.0.0.1:3306/bbs?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    thymeleaf:
     mode: HTML5  # 视图模型
     cache: false # 模板缓存
 
