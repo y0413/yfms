@@ -1,0 +1,16 @@
+server:
+  port: 8081 #端口号
+spring:
+  datasource: #数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    username: ypc
+    password: 123
+    url:  jdbc:mysql://localhost:3306/premission?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+  thymeleaf:
+    mode: HTML5  # 视图模型
+    cache: false # 模板缓存
+
+  resources:
+    static-locations: classpath:/META- INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/ # 静态资源路径
+  messages:
+    encoding: UTF-8
