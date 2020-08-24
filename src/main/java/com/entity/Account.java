@@ -2,8 +2,29 @@ package com.entity;
 
 public class Account {
     Integer aid;
+    Integer aiId;
     String acc;
     String idcard;
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "aid=" + aid +
+                ", aiId=" + aiId +
+                ", acc='" + acc + '\'' +
+                ", idcard='" + idcard + '\'' +
+                ", uid=" + uid +
+                '}';
+    }
+
+    public Integer getAiId() {
+        return aiId;
+    }
+
+    public void setAiId(Integer aiId) {
+        this.aiId = aiId;
+    }
+
     Integer uid;
 
     public Account() {
@@ -41,13 +62,4 @@ public class Account {
         this.uid = uid;
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "aid=" + aid +
-                ", acc='" + acc + '\'' +
-                ", idcard='" + idcard + '\'' +
-                ", uid=" + uid +
-                '}';
-    }
 }
