@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123@qwe
-    url: jdbc:mysql://127.0.0.1:3306/bnb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url:  jdbc:mysql://127.0.0.1:3306/bnb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
   thymeleaf:
     mode: HTML5  # 视图模型
     cache: false # 模板缓存
