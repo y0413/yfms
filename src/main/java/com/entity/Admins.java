@@ -9,9 +9,36 @@ public class Admins {
     Integer astate;
     Date alogintime;
     String avatar;
+    Integer aiId;
+
+
+
+
+    @Override
+    public String toString() {
+        return "Admins{" +
+                "aid=" + aid +
+                ", account='" + account + '\'' +
+                ", apwd='" + apwd + '\'' +
+                ", astate=" + astate +
+                ", alogintime=" + alogintime +
+                ", avatar='" + avatar + '\'' +
+                ", aiId=" + aiId +
+                '}';
+    }
 
     public Admins() {
     }
+
+    public Integer getAiId() {
+        return aiId;
+    }
+
+    public void setAiId(Integer aiId) {
+        this.aiId = aiId;
+    }
+
+
 
     public Integer getAid() {
         return aid;
@@ -61,15 +88,4 @@ public class Admins {
         this.avatar = avatar;
     }
 
-    @Override
-    public String toString() {
-        return "Admins{" +
-                "aid=" + aid +
-                ", account='" + account + '\'' +
-                ", apwd='" + apwd + '\'' +
-                ", astate=" + astate +
-                ", alogintime=" + alogintime +
-                ", avatar='" + avatar + '\'' +
-                '}';
-    }
 }
