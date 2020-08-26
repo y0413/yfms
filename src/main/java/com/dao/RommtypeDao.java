@@ -1,7 +1,7 @@
 package com.dao;
 
-import org.apache.ibatis.annotations.Mapper;
+import com.entity.Rommtype;
+import tk.mybatis.mapper.common.Mapper;
 
-@Mapper
-public interface RommtypeDao extends tk.mybatis.mapper.common.Mapper<com.entity.Rommtype> {
+public interface RommtypeDao extends Mapper<Rommtype> {
 }
