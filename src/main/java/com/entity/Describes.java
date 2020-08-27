@@ -1,11 +1,14 @@
 package com.entity;
 
+import javax.persistence.Id;
+
 public class Describes {
+    @Id
     Integer did;
     String title;
-    String describes;
-    String Internal;
-    String Traffic;
+    String desbes;
+    String internal;
+    String traffic;
     String spots;
 
     public Describes() {
@@ -27,28 +30,28 @@ public class Describes {
         this.title = title;
     }
 
-    public String getDescribes() {
-        return describes;
+    public String getDesbes() {
+        return desbes;
     }
 
-    public void setDescribes(String describes) {
-        this.describes = describes;
+    public void setDesbes(String desbes) {
+        this.desbes = desbes;
     }
 
     public String getInternal() {
-        return Internal;
+        return internal;
     }
 
     public void setInternal(String internal) {
-        Internal = internal;
+        this.internal = internal;
     }
 
     public String getTraffic() {
-        return Traffic;
+        return traffic;
     }
 
     public void setTraffic(String traffic) {
-        Traffic = traffic;
+        this.traffic = traffic;
     }
 
     public String getSpots() {
@@ -64,9 +67,9 @@ public class Describes {
         return "Describes{" +
                 "did=" + did +
                 ", title='" + title + '\'' +
-                ", describes='" + describes + '\'' +
-                ", Internal='" + Internal + '\'' +
-                ", Traffic='" + Traffic + '\'' +
+                ", desbes='" + desbes + '\'' +
+                ", internal='" + internal + '\'' +
+                ", traffic='" + traffic + '\'' +
                 ", spots='" + spots + '\'' +
                 '}';
     }
