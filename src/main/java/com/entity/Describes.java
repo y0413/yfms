@@ -3,6 +3,7 @@ package com.entity;
 import javax.persistence.Id;
 
 public class Describes {
+
     @Id
     Integer did;
     String title;
