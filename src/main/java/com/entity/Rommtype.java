@@ -1,12 +1,9 @@
 package com.entity;
 
 public class Rommtype {
-    Integer rid;
-    String rname;
-    String notes;
-
-    public Rommtype() {
-    }
+     Integer rid;
+     String rname;
+     String notes;
 
     public Integer getRid() {
         return rid;
@@ -30,6 +27,9 @@ public class Rommtype {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public Rommtype() {
     }
 
     @Override
