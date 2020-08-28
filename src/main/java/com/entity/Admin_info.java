@@ -9,8 +9,32 @@ public class Admin_info {
     String idcard;
     Integer state;
     Integer pid;
+    Integer aid;
 
     public Admin_info() {
+    }
+
+    @Override
+    public String toString() {
+        return "Admin_info{" +
+                "aiId=" + aiId +
+                ", aname='" + aname + '\'' +
+                ", asex='" + asex + '\'' +
+                ", atel='" + atel + '\'' +
+                ", address='" + address + '\'' +
+                ", idcard='" + idcard + '\'' +
+                ", state=" + state +
+                ", pid=" + pid +
+                ", aid=" + aid +
+                '}';
+    }
+
+    public Integer getAid() {
+        return aid;
+    }
+
+    public void setAid(Integer aid) {
+        this.aid = aid;
     }
 
     public Integer getAiId() {
@@ -77,17 +101,4 @@ public class Admin_info {
         this.pid = pid;
     }
 
-    @Override
-    public String toString() {
-        return "Admin_info{" +
-                "aiId=" + aiId +
-                ", aname='" + aname + '\'' +
-                ", asex='" + asex + '\'' +
-                ", atel='" + atel + '\'' +
-                ", address='" + address + '\'' +
-                ", idcard='" + idcard + '\'' +
-                ", state=" + state +
-                ", pid=" + pid +
-                '}';
-    }
 }
