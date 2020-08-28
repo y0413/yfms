@@ -25,16 +25,16 @@ public class DescribesController {
         return describesDao.listAll();
     }
 
-    @RequestMapping("addDes")
-    @ResponseBody
-    public Integer addDes(@RequestBody Describes describes){
-
-        Integer i = describesDao.addDes(describes);
-        if (i>0){
-            //System.out.println("添加成功");
-            return i;
-        }
-        return null;
-    }
+//    @RequestMapping("addDes")
+//    @ResponseBody
+//    public Integer addDes(@RequestBody Describes describes){
+//
+//        Integer i = describesDao.addDes(describes);
+//        if (i>0){
+//            //System.out.println("添加成功");
+//            return i;
+//        }
+//        return null;
+//    }
 
 }

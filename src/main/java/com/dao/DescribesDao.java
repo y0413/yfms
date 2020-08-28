@@ -10,11 +10,11 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface DescribesDao extends Mapper<Describes> {
     //添加
-    @Insert("insert into describes " +
-            "(title,desbes,internal,traffic,spots) " +
-            "values " +
-            "(#{title},#{desbes},#{internal},#{traffic},#{spots} )")
-    Integer addDes(Describes describes);
+//    @Insert("insert into describes " +
+//            "(title,desbes,internal,traffic,spots) " +
+//            "values " +
+//            "(#{title},#{desbes},#{internal},#{traffic},#{spots} )")
+//    Integer addDes(Describes describes);
     //查询
     @Select("select * from describes")
     List<Describes> listAll();
