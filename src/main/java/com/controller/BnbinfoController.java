@@ -65,6 +65,7 @@ public class BnbinfoController {
     }
     @Value("${prop.upload-folder}")
     private String UPLOAD_FOLDER;
+    //图片上传
     @PostMapping("/singlefile")
     public Object singleFileUpload(@RequestParam("file") MultipartFile[] file,String pic) throws Exception  {
         for (MultipartFile s : file) {
@@ -119,6 +120,7 @@ public class BnbinfoController {
         this.singleFileUpload(file,"other");
         return "ok";
     }
+    //添加设施
     @RequestMapping("ptss")
     public void ptss(@RequestBody String[] checklist ){
         int bnbid=queryBnbid();
