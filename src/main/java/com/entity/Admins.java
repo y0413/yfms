@@ -9,7 +9,6 @@ public class Admins {
     Integer astate;
     Date alogintime;
     String avatar;
-    Integer aiId;
 
 
 
@@ -23,22 +22,11 @@ public class Admins {
                 ", astate=" + astate +
                 ", alogintime=" + alogintime +
                 ", avatar='" + avatar + '\'' +
-                ", aiId=" + aiId +
                 '}';
     }
 
     public Admins() {
     }
-
-    public Integer getAiId() {
-        return aiId;
-    }
-
-    public void setAiId(Integer aiId) {
-        this.aiId = aiId;
-    }
-
-
 
     public Integer getAid() {
         return aid;

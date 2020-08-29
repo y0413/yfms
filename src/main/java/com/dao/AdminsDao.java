@@ -13,7 +13,7 @@ import java.util.Map;
 @org.apache.ibatis.annotations.Mapper
 public interface AdminsDao extends Mapper<Admins> {
 
-    @Select("select * from admins a left join admin_info b  on b.aiId=a.aiId  where a.account=${account} and a.apwd=${apwd} ")
+    @Select("select * from admins a left join admin_info b  on b.aid=a.aid  where a.account=${account} and a.apwd=${apwd} ")
     List<Map> queryName(@Param("account") String account, @Param("apwd") String apwd);
    @Select("select * from admins where account=${account}")
    List<Admins> queryaccount(@Param("account") String account);
