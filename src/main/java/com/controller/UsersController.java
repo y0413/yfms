@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.dao.UsersDao;
+import org.apache.ibatis.annotations.Insert;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,5 +18,9 @@ public class UsersController {
     @RequestMapping("queryName")
     public List<Map> queryName(String uname,String upwd){
         return usersDao.queryName(uname,upwd);
+    }
+    @RequestMapping("adduser")
+    public int adduser(String uname,String upwd){
+        return usersDao.adduser(uname,upwd);
     }
 }
