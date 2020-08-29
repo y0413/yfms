@@ -1,5 +1,7 @@
 server:
   port: 8081 #端口号
+prop:
+  upload-folder: files\
 spring:
   datasource: #数据源
     driver-class-name: com.mysql.cj.jdbc.Driver

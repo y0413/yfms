@@ -32,4 +32,12 @@ public interface BnbinfoDao extends Mapper<Bnbinfo> {
     int upBnbid();
     @Update("update id set did=did+1")
     int upIDid();
+//    @Select("select bedroom,room,toilet,kitchen,other from bnbinfo where bnbid=2")
+//    Map<String,Object> selectPic();
+//    @Update("update bnbinfo set bedroom=${p1},room=${p2},toilet=${p3},kitchen=${p4},other=${p5} where bnbid=${bnbid}")
+//    int upPic(@Param("p1") String p1,@Param("p2") String p2,@Param("p3") String p3,@Param("p4") String p4,@Param("p5") String p5,@Param("bnbid") Integer bnbid);
+    @Update("update bnbinfo set ${d}=#{p1} where bnbid=${bnbid}")
+    int upPic(@Param("d") String d,@Param("p1") String p1,@Param("bnbid") Integer bnbid);
+    @Update("update bnbinfo set ${s}=0 where bnbid=${bnbid}")
+    int upSs(@Param("s") String s,@Param("bnbid") Integer bnbid);
 }
