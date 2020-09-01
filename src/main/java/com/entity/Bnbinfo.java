@@ -1,6 +1,9 @@
 package com.entity;
 
+import javax.persistence.Id;
+
 public class Bnbinfo {
+    @Id
     Integer bnbid;
     String bnbname;
     String state;
@@ -23,6 +26,44 @@ public class Bnbinfo {
     String room;
     String toilet;
     String kitchen;
+    String other;
+    Integer price;
+    String longitude;//经度
+    String latitude;//纬度
+
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+
+    public String getOther() {
+        return other;
+    }
+
+    public void setOther(String other) {
+        this.other = other;
+    }
 
     public Bnbinfo() {
     }
@@ -228,6 +269,10 @@ public class Bnbinfo {
                 ", room='" + room + '\'' +
                 ", toilet='" + toilet + '\'' +
                 ", kitchen='" + kitchen + '\'' +
+                ", other='" + other + '\'' +
+                ", price=" + price +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
                 '}';
     }
 }

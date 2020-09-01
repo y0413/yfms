@@ -11,6 +11,15 @@ public class Describes {
     String internal;
     String traffic;
     String spots;
+    String requirement;//对房客的要求
+
+    public String getRequirement() {
+        return requirement;
+    }
+
+    public void setRequirement(String requirement) {
+        this.requirement = requirement;
+    }
 
     public Describes() {
     }

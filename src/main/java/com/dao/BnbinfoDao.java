@@ -42,4 +42,7 @@ public interface BnbinfoDao extends Mapper<Bnbinfo> {
     //设施
     @Update("update bnbinfo set ${s}=0 where bnbid=${bnbid}")
     int upSs(@Param("s") String s,@Param("bnbid") Integer bnbid);
+    @Select("select * from bnbinfo b join rommtype r on b.rid=r.rid join livable l on b.liva_id=l.liva_id\n" +
+            "join house_type h on b.hid=h.hid join describes d on b.did=d.did where bnbid=#{bnbid}")
+    Map<String,Object> queryBnbinfo(Integer bnbid);
 }
