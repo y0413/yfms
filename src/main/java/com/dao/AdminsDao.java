@@ -44,4 +44,6 @@ public interface AdminsDao extends Mapper<Admins> {
             " on r.auth_id=au.auth_id\n" +
             " where a.pid=#{pid}")
     List<Map> roleAdmin(Integer pid);
+    int update11(Admins a1);
+
 }
