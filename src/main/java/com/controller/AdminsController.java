@@ -3,7 +3,6 @@ package com.controller;
 import com.dao.AdminsDao;
 import com.dao.roleDao;
 import com.entity.Admins;
-import com.entity.Role;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +39,7 @@ public class AdminsController {
     @ResponseBody
     public List<Map> query(String aname){
         if(aname!=""){
+            System.out.println("安迪圳堵起");
             System.out.println("%"+aname+"%");
             return adminsDao.query("%"+aname+"%");
         }
