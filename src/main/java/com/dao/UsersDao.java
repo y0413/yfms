@@ -17,4 +17,8 @@ public interface UsersDao extends Mapper<Users> {
 
     @Insert("insert into users (uname,upwd) values (#{uname},#{upwd})")
     int adduser(@Param("uname") String uname,@Param("upwd") String upwd);
+    @Insert("insert into users (uname,upwd,photo) values (#{uname},#{upwd},#{photo})")
+    int addusers(@Param("uname") String uname,@Param("upwd") String upwd,@Param("photo") String photo);
+    @Select("select * from users where photo =#{photo}")
+    List<Map> usersphoto(@Param("photo") String photo);
 }
