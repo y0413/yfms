@@ -101,8 +101,8 @@ public class test1 {
     }
     @RequestMapping("usersphoto")
     @ResponseBody
-    public List<Map> usersphoto(String photo){
-        return usersDao.usersphoto(photo);
+        public List<Map> usersphoto(String photo){
+            return usersDao.usersphoto(photo);
     }
 
 }

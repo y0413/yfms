@@ -13,7 +13,6 @@ public class Users {
     Date createtime;
     String state;
     String truename;
-    String ptel;
     String idcard;
     Integer bnbid;
     Integer ustate;
@@ -101,13 +100,6 @@ public class Users {
         this.truename = truename;
     }
 
-    public String getPtel() {
-        return ptel;
-    }
-
-    public void setPtel(String ptel) {
-        this.ptel = ptel;
-    }
 
     public String getIdcard() {
         return idcard;
@@ -146,7 +138,6 @@ public class Users {
                 ", createtime=" + createtime +
                 ", state='" + state + '\'' +
                 ", truename='" + truename + '\'' +
-                ", ptel='" + ptel + '\'' +
                 ", idcard='" + idcard + '\'' +
                 ", bnbid=" + bnbid +
                 ", ustate=" + ustate +
