@@ -15,9 +15,8 @@ public interface CommentsDao {
     @Select("select * from comments c \n" +
             "join users u \n" +
             "on c.uid = u.uid \n" +
-            "join bnbinfo b \n" +
-            "on c.bnbid = b.bnbid")
-    List<Comments> listAll();
+            "where c.bnbid = #{bnbid} ")
+    List<Comments> listAll(Integer bnbid);
 
     @Select("select * from comments where cid = #{cid}")
     Comments listById(@Param("cid") Integer cid);

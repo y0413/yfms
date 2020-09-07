@@ -22,8 +22,10 @@ public class CommentsController {
 
     @RequestMapping("listAll")
     @ResponseBody
-    public Object listAll(){
-        return commentsDao.listAll();
+    public Object listAll(Integer bnbid){
+
+        System.out.println("房源编号:"+bnbid);
+        return commentsDao.listAll(bnbid);
     }
 
     @RequestMapping("listById")
@@ -35,7 +37,7 @@ public class CommentsController {
     @RequestMapping("addCom")
     @ResponseBody
     public Object addCom(@RequestBody Comments comments){
-        System.out.println("添加成功");
+//        System.out.println("添加成功");
         return commentsDao.addCom(comments);
     }
 

@@ -75,7 +75,7 @@ public class OrdersController {
 
    @RequestMapping(value = "pay")
    @ResponseBody
-    public void pay(Integer order_number,String bnbname,String order_price, HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public void pay(String order_number,String bnbname,String order_price, HttpServletRequest request, HttpServletResponse response) throws IOException{
        //获得初始化的AlipayClient
        AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl,AlipayConfig.app_id,AlipayConfig.merchant_private_key,"json",AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
 
@@ -84,11 +84,11 @@ public class OrdersController {
        alipayRequest.setReturnUrl(AlipayConfig.return_url);
        alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
 
-       order_number=(int) ((Math.random())*1000000000);
-       System.out.println("随机号:"+order_number);
+//       order_number=(int) ((Math.random())*1000000000);
+//       System.out.println("随机号:"+order_number);
 
        //商户订单号，商户网站订单系统中唯一订单号，必填
-       String out_trade_no = order_number.toString();
+       String out_trade_no = order_number;
        //付款金额，必填
        String total_amount = order_price;
        //订单名称，必填
