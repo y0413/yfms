@@ -34,6 +34,11 @@ public class BnbinfoController {
         List<Id> ids = idDao.selectAll();
         return ids.get(0).getDid();
     }
+    //查询关联数据
+    @RequestMapping("select")
+    public List<Map<String,Object>> selectBnb(@RequestBody Map map){
+        return bnbinfoDao.selectListB(map);
+    }
     //查询房源信息
     @RequestMapping("query")
     public List<Bnbinfo> query(){

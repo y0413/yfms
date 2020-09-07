@@ -1,9 +1,11 @@
 package com.entity;
 
+import java.util.Date;
+
 public class Withdrawal {
     Integer wid;
     Integer uid;
-    String times;
+    Date times;
     Double total_price;
     Integer coll_mode;
 
@@ -26,11 +28,11 @@ public class Withdrawal {
         this.uid = uid;
     }
 
-    public String getTimes() {
+    public Date getTimes() {
         return times;
     }
 
-    public void setTimes(String times) {
+    public void setTimes(Date times) {
         this.times = times;
     }
 

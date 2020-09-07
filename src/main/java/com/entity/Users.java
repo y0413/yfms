@@ -1,8 +1,10 @@
 package com.entity;
 
+import javax.persistence.Id;
 import java.util.Date;
 
 public class Users {
+    @Id
     Integer uid;
     String photo;
     String uname;

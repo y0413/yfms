@@ -11,6 +11,7 @@ import java.util.Map;
 
 
 import com.entity.Bnbinfo;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
 import tk.mybatis.mapper.common.Mapper;
 @org.apache.ibatis.annotations.Mapper
@@ -45,4 +46,36 @@ public interface BnbinfoDao extends Mapper<Bnbinfo> {
     @Select("select * from bnbinfo b join rommtype r on b.rid=r.rid join livable l on b.liva_id=l.liva_id\n" +
             "join house_type h on b.hid=h.hid join describes d on b.did=d.did where bnbid=#{bnbid}")
     Map<String,Object> queryBnbinfo(Integer bnbid);
+
+    @SelectProvider(type = SelectBnbinfo.class,method = "selectBnb")
+    List<Map<String,Object>> selectListB(Map map);
+    class SelectBnbinfo{
+        public String selectBnb(Map map){
+            String city=(String) map.get("city");
+            String bnbname=(String) map.get("bnbname");
+            String hid=(String) map.get("hid");
+            Integer liva_id= (Integer) map.get("liva_id");
+            Object startprice = map.get("startprice");
+            Object endprice = map.get("endprice");
+            String sql="select * from bnbinfo b " +
+                    "join rommtype r on b.rid=r.rid " +
+                    "join livable l on b.liva_id=l.liva_id\n" +
+                    "join house_type h on b.hid=h.hid " +
+                    "join describes d on b.did=d.did where 1=1 ";
+            if(!city.equals("")){
+                sql+=" and city='"+city+"'";
+            }
+            if(!bnbname.equals("")){
+                sql+=" and bnbname like '%"+bnbname+"%'";
+            }
+            if(!hid.equals("")){
+                sql+=" and b.hid='"+hid+"'";
+            }
+            if(liva_id!=0){
+                sql+=" and b.liva_id='"+liva_id+"'";
+            }
+            sql+=" and price between '"+startprice+"' and '"+endprice+"'";
+            return sql;
+        }
+    }
 }
