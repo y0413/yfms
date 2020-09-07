@@ -8,8 +8,17 @@ public class Comments {
     Date ctime;
     Integer uid;
     Integer bnbid;
+    String uname;
 
     public Comments() {
+    }
+
+    public String getUname() {
+        return uname;
+    }
+
+    public void setUname(String uname) {
+        this.uname = uname;
     }
 
     public Integer getCid() {
@@ -60,6 +69,7 @@ public class Comments {
                 ", ctime=" + ctime +
                 ", uid=" + uid +
                 ", bnbid=" + bnbid +
+                ", uname='" + uname + '\'' +
                 '}';
     }
 }

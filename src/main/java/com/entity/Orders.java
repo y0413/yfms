@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Orders {
     Integer oid;
-    String Order_num;
+    Integer Order_num;
     String state;
     Integer bnbid;
     Integer uid;
@@ -12,6 +12,7 @@ public class Orders {
     String order_notes;
     Double order_price;
     Integer order_people;
+    String bnbname;
 
     public Orders() {
     }
@@ -24,11 +25,11 @@ public class Orders {
         this.oid = oid;
     }
 
-    public String getOrder_num() {
+    public Integer getOrder_num() {
         return Order_num;
     }
 
-    public void setOrder_num(String order_num) {
+    public void setOrder_num(Integer order_num) {
         Order_num = order_num;
     }
 
@@ -88,11 +89,19 @@ public class Orders {
         this.order_people = order_people;
     }
 
+    public String getBnbname() {
+        return bnbname;
+    }
+
+    public void setBnbname(String bnbname) {
+        this.bnbname = bnbname;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
                 "oid=" + oid +
-                ", Order_num='" + Order_num + '\'' +
+                ", Order_num=" + Order_num +
                 ", state='" + state + '\'' +
                 ", bnbid=" + bnbid +
                 ", uid=" + uid +
@@ -100,6 +109,7 @@ public class Orders {
                 ", order_notes='" + order_notes + '\'' +
                 ", order_price=" + order_price +
                 ", order_people=" + order_people +
+                ", bnbname='" + bnbname + '\'' +
                 '}';
     }
 }
