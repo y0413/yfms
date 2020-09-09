@@ -6,13 +6,13 @@ public class Orders {
     Integer oid;
     Integer Order_num;
     String state;
-    Integer bnbid;
+    String bnbname;
     Integer uid;
     Date createtime;
-    String order_notes;
     Double order_price;
-    Integer order_people;
-    String bnbname;
+    Date sendtime;
+    Date starttime;
+
 
     public Orders() {
     }
@@ -37,16 +37,39 @@ public class Orders {
         return state;
     }
 
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "oid=" + oid +
+                ", Order_num=" + Order_num +
+                ", state='" + state + '\'' +
+                ", bnbname='" + bnbname + '\'' +
+                ", uid=" + uid +
+                ", createtime=" + createtime +
+                ", order_price=" + order_price +
+                ", sendtime=" + sendtime +
+                ", starttime=" + starttime +
+                '}';
+    }
+
+    public Date getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(Date starttime) {
+        this.starttime = starttime;
+    }
+
     public void setState(String state) {
         this.state = state;
     }
 
-    public Integer getBnbid() {
-        return bnbid;
+    public String getBnbname() {
+        return bnbname;
     }
 
-    public void setBnbid(Integer bnbid) {
-        this.bnbid = bnbid;
+    public void setBnbname(String bnbname) {
+        this.bnbname = bnbname;
     }
 
     public Integer getUid() {
@@ -65,14 +88,6 @@ public class Orders {
         this.createtime = createtime;
     }
 
-    public String getOrder_notes() {
-        return order_notes;
-    }
-
-    public void setOrder_notes(String order_notes) {
-        this.order_notes = order_notes;
-    }
-
     public Double getOrder_price() {
         return order_price;
     }
@@ -81,35 +96,12 @@ public class Orders {
         this.order_price = order_price;
     }
 
-    public Integer getOrder_people() {
-        return order_people;
+    public Date getSendtime() {
+        return sendtime;
     }
 
-    public void setOrder_people(Integer order_people) {
-        this.order_people = order_people;
+    public void setSendtime(Date sendtime) {
+        this.sendtime = sendtime;
     }
 
-    public String getBnbname() {
-        return bnbname;
-    }
-
-    public void setBnbname(String bnbname) {
-        this.bnbname = bnbname;
-    }
-
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "oid=" + oid +
-                ", Order_num=" + Order_num +
-                ", state='" + state + '\'' +
-                ", bnbid=" + bnbid +
-                ", uid=" + uid +
-                ", createtime=" + createtime +
-                ", order_notes='" + order_notes + '\'' +
-                ", order_price=" + order_price +
-                ", order_people=" + order_people +
-                ", bnbname='" + bnbname + '\'' +
-                '}';
-    }
 }

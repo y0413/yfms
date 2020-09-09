@@ -23,8 +23,6 @@ public class CommentsController {
     @RequestMapping("listAll")
     @ResponseBody
     public Object listAll(Integer bnbid){
-
-        System.out.println("房源编号:"+bnbid);
         return commentsDao.listAll(bnbid);
     }
 
