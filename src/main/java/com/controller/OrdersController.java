@@ -42,7 +42,6 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("order")
 public class OrdersController {
-
     @Resource
     OrderDao orderDao;
 
