@@ -6,12 +6,9 @@ public class Orders {
     Integer oid;
     Integer Order_num;
     String state;
-    Integer bnbid;
     Integer uid;
     Date createtime;
-    String order_notes;
     Double order_price;
-    Integer order_people;
     String bnbname;
 
     public Orders() {
@@ -41,13 +38,6 @@ public class Orders {
         this.state = state;
     }
 
-    public Integer getBnbid() {
-        return bnbid;
-    }
-
-    public void setBnbid(Integer bnbid) {
-        this.bnbid = bnbid;
-    }
 
     public Integer getUid() {
         return uid;
@@ -65,13 +55,7 @@ public class Orders {
         this.createtime = createtime;
     }
 
-    public String getOrder_notes() {
-        return order_notes;
-    }
 
-    public void setOrder_notes(String order_notes) {
-        this.order_notes = order_notes;
-    }
 
     public Double getOrder_price() {
         return order_price;
@@ -81,13 +65,6 @@ public class Orders {
         this.order_price = order_price;
     }
 
-    public Integer getOrder_people() {
-        return order_people;
-    }
-
-    public void setOrder_people(Integer order_people) {
-        this.order_people = order_people;
-    }
 
     public String getBnbname() {
         return bnbname;
@@ -103,12 +80,9 @@ public class Orders {
                 "oid=" + oid +
                 ", Order_num=" + Order_num +
                 ", state='" + state + '\'' +
-                ", bnbid=" + bnbid +
                 ", uid=" + uid +
                 ", createtime=" + createtime +
-                ", order_notes='" + order_notes + '\'' +
                 ", order_price=" + order_price +
-                ", order_people=" + order_people +
                 ", bnbname='" + bnbname + '\'' +
                 '}';
     }

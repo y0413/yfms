@@ -140,6 +140,7 @@ public class BnbinfoController {
     public void ptss(@RequestBody String[] checklist ){
         int bnbid=queryBnbid();
         bnbid=bnbid-1;
+
         for (String s :
                 checklist) {
             bnbinfoDao.upSs(s,bnbid);

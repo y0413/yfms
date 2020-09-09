@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.dao.OrdersDao;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,15 +46,18 @@ public class OrdersController {
 
     @Resource
     OrderDao orderDao;
-
-//    @RequestMapping("queryOrders")
-//    public List<Map<String, Object>> queryOrders(Integer uid,Integer state){
-//        return ordersDao.queryOrders(uid,state);
-//    }
-//    @RequestMapping("queryComments")
-//    public List<Map<String, Object>> queryComments(Integer uid){
-//        return ordersDao.queryComments(uid);
-//    }
+    @Resource
+    OrdersDao ordersDao;
+    @RequestMapping("queryOrders")
+    @ResponseBody
+    public List<Map<String, Object>> queryOrders(Integer uid,Integer state){
+        return ordersDao.queryOrders(uid,state);
+    }
+    @RequestMapping("queryComments")
+    @ResponseBody
+    public List<Map<String, Object>> queryComments(Integer uid){
+        return ordersDao.queryComments(uid);
+    }
 
     @RequestMapping("listAll")
     @ResponseBody
@@ -61,7 +65,7 @@ public class OrdersController {
         return orderDao.listAll();
     }
 
-    @RequestMapping("addOrder")
+    @RequestMapping(value="addOrder")
     @ResponseBody
     public Object addOrder(@RequestBody Orders orders) throws IOException {
         orders.setOrder_num((int) ((Math.random())*1000000000));
@@ -74,7 +78,7 @@ public class OrdersController {
     }
 
    @RequestMapping(value = "pay")
-   @ResponseBody
+
     public void pay(String order_number,String bnbname,String order_price, HttpServletRequest request, HttpServletResponse response) throws IOException{
        //获得初始化的AlipayClient
        AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl,AlipayConfig.app_id,AlipayConfig.merchant_private_key,"json",AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
