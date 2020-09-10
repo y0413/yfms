@@ -4,6 +4,7 @@ import com.entity.Orders;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 import java.util.Map;
@@ -28,5 +29,9 @@ public interface OrderDao {
             "values \n" +
             "(#{order_num},#{uid},#{bnbname},now(),#{order_price},#{sendtime},#{starttime}) ")
     Integer addOrder(Orders orders);
+
+    @Update("update platform set pmoney=pmoney+#{money}")
+    int upPmoney(Float money);
+
 
 }

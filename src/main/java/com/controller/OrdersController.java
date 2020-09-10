@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.dao.OrdersDao;
+import com.entity.Users;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -81,16 +82,18 @@ public class OrdersController {
 
    @RequestMapping(value = "pay")
    @ResponseBody
-    public void pay(String order_number,String bnbname,String order_price, HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public void pay(String order_number,String bnbname,String order_price, HttpServletResponse response) throws IOException{
+//       String return_url = "http://localhost:8080/#/";
        //获得初始化的AlipayClient
        AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl,AlipayConfig.app_id,AlipayConfig.merchant_private_key,"json",AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
 
        //设置请求参数
        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+
+       Integer i = orderDao.upPmoney(Float.parseFloat(order_price));
+//       System.out.println("添加成功:"+i);
        alipayRequest.setReturnUrl(AlipayConfig.return_url);
        alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
-
-
        //商户订单号，商户网站订单系统中唯一订单号，必填
        String out_trade_no = order_number;
        //付款金额，必填
