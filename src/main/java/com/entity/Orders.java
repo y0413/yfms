@@ -65,13 +65,7 @@ public class Orders {
         this.state = state;
     }
 
-    public String getBnbname() {
-        return bnbname;
-    }
 
-    public void setBnbname(String bnbname) {
-        this.bnbname = bnbname;
-    }
     public Integer getBnbid() {
         return bnbid;
     }
@@ -112,13 +106,6 @@ public class Orders {
         this.order_price = order_price;
     }
 
-    public Integer getOrder_people() {
-        return order_people;
-    }
-
-    public void setOrder_people(Integer order_people) {
-        this.order_people = order_people;
-    }
 
     public String getBnbname() {
         return bnbname;
@@ -128,19 +115,5 @@ public class Orders {
         this.bnbname = bnbname;
     }
 
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "oid=" + oid +
-                ", Order_num=" + Order_num +
-                ", state='" + state + '\'' +
-                ", bnbid=" + bnbid +
-                ", uid=" + uid +
-                ", createtime=" + createtime +
-                ", order_notes='" + order_notes + '\'' +
-                ", order_price=" + order_price +
-                ", order_people=" + order_people +
-                ", bnbname='" + bnbname + '\'' +
-                '}';
-    }
+
 }
