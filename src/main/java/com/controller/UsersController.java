@@ -32,6 +32,39 @@ import java.util.UUID;
 public class UsersController {
     @Resource
     UsersDao usersDao;
+    //查看提现记录
+    @RequestMapping("queryTx")
+    public List<Map> queryTx(Integer uid){
+        return usersDao.queryTx(uid);
+    }
+    //添加提现记录
+    @RequestMapping("addTx")
+    public int addTx(Integer uid,Float total_price,Integer aid){
+        return usersDao.addTx(uid,total_price,aid);
+    }
+
+    //修改支付
+    @RequestMapping("updateAcc")
+    public int updateAcc(String acc,String idcard,Integer uid){
+        return usersDao.updateAcc(acc,idcard,uid);
+    }
+    //查询支付
+    @RequestMapping("queryAcc")
+    public Map queryAcc(Integer uid){
+        return usersDao.queryAcc(uid);
+    }
+    @RequestMapping("queryBnb")
+    //查询房源
+    public List<Map> queryBnb(Integer uid){
+        return usersDao.queryBnb(uid);
+    }
+    @RequestMapping("queryUid")
+    public List<Map> queryUid(Integer uid){
+//        System.out.println("执行");
+        List<Map> users = usersDao.queryUid(uid);
+//        System.out.println(users);
+        return usersDao.queryUid(uid);
+    }
     @RequestMapping("queryName")
     public List<Map> queryName(String uname,String upwd){
         return usersDao.queryName(uname,upwd);

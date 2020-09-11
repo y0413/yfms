@@ -30,7 +30,33 @@ public class Bnbinfo {
     Integer price;
     String longitude;//经度
     String latitude;//纬度
+    Integer bnbstate;//房源添加是否成功
+    Integer uid;
+    Integer bnbshelf;//下架上架
 
+    public Integer getBnbstate() {
+        return bnbstate;
+    }
+
+    public void setBnbstate(Integer bnbstate) {
+        this.bnbstate = bnbstate;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    public Integer getBnbshelf() {
+        return bnbshelf;
+    }
+
+    public void setBnbshelf(Integer bnbshelf) {
+        this.bnbshelf = bnbshelf;
+    }
 
     public Integer getPrice() {
         return price;
@@ -273,6 +299,9 @@ public class Bnbinfo {
                 ", price=" + price +
                 ", longitude='" + longitude + '\'' +
                 ", latitude='" + latitude + '\'' +
+                ", bnbstate=" + bnbstate +
+                ", uid=" + uid +
+                ", bnbshelf=" + bnbshelf +
                 '}';
     }
 }

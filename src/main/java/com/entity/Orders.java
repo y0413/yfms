@@ -14,6 +14,15 @@ public class Orders {
     Double order_price;
     Date sendtime;
     Date starttime;
+    Integer bnbid;
+
+    public Integer getBnbid() {
+        return bnbid;
+    }
+
+    public void setBnbid(Integer bnbid) {
+        this.bnbid = bnbid;
+    }
 
     public Orders() {
     }
@@ -65,13 +74,12 @@ public class Orders {
         this.state = state;
     }
 
-
-    public Integer getBnbid() {
-        return bnbid;
+    public String getBnbname() {
+        return bnbname;
     }
 
-    public void setBnbid(Integer bnbid) {
-        this.bnbid = bnbid;
+    public void setBnbname(String bnbname) {
+        this.bnbname = bnbname;
     }
 
     public Integer getUid() {
@@ -90,14 +98,6 @@ public class Orders {
         this.createtime = createtime;
     }
 
-    public String getOrder_notes() {
-        return order_notes;
-    }
-
-    public void setOrder_notes(String order_notes) {
-        this.order_notes = order_notes;
-    }
-
     public Double getOrder_price() {
         return order_price;
     }
@@ -106,14 +106,12 @@ public class Orders {
         this.order_price = order_price;
     }
 
-
-    public String getBnbname() {
-        return bnbname;
+    public Date getSendtime() {
+        return sendtime;
     }
 
-    public void setBnbname(String bnbname) {
-        this.bnbname = bnbname;
+    public void setSendtime(Date sendtime) {
+        this.sendtime = sendtime;
     }
-
 
 }

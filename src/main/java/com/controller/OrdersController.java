@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.dao.OrdersDao;
+import com.dao.PlatformDao;
 import com.entity.Users;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,11 +50,20 @@ public class OrdersController {
     @Resource
     OrdersDao ordersDao;
 
+    @Resource
+    PlatformDao platformDao;
+    @RequestMapping("queryOrdersjx")
+    @ResponseBody
+    public List<Map<String, Object>> queryOrdersjx(Integer uid,Integer state){
+        return ordersDao.queryOrdersjx(uid,state);
+    }
     @RequestMapping("queryOrders")
+    @ResponseBody
     public List<Map<String, Object>> queryOrders(Integer uid,Integer state){
         return ordersDao.queryOrders(uid,state);
     }
     @RequestMapping("queryComments")
+    @ResponseBody
     public List<Map<String, Object>> queryComments(Integer uid){
         return ordersDao.queryComments(uid);
     }
@@ -74,6 +84,10 @@ public class OrdersController {
     @ResponseBody
     public Object addOrder(@RequestBody Orders ordetails) {
         Integer i = orderDao.addOrder(ordetails);
+        Float order_price = Float.parseFloat(ordetails.getOrder_price().toString());
+        System.out.println(order_price);
+        platformDao.upaddPmoney(order_price);
+        platformDao.addWateryd(order_price,ordetails.getUid());
         if (i>0){
             return i;
         }

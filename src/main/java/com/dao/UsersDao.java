@@ -37,8 +37,8 @@ public interface UsersDao extends Mapper<Users> {
         int add();
     //查询房源
     @Select("select * from users u \n" +
-            "join bnbinfo b on u.bnbid=b.bnbid\n" +
-            "where uid=#{uid}")
+            "join bnbinfo b on u.uid=b.uid\n" +
+            "where u.uid=#{uid} and bnbstate=0 and bnbshelf=0 ")
     List<Map> queryBnb(Integer uid);
     //查询支付宝
     @Select("select * from account where uid=#{uid}")

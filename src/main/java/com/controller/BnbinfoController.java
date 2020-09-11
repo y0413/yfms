@@ -34,15 +34,35 @@ public class BnbinfoController {
         List<Id> ids = idDao.selectAll();
         return ids.get(0).getDid();
     }
+    //查询进行中订单
+    @RequestMapping("selectOrYd")
+    public List<Map> selectOrYd(String sttime, Integer bnbid){
+        return bnbinfoDao.selectOrYd(sttime,bnbid);
+    }
+    //下架
+    @RequestMapping("upBnbshelf")
+    public int upBnbshelf(Integer bnbid){
+        return bnbinfoDao.upBnbshelf(bnbid);
+    }
+    //查询房源下的订单
+    @RequestMapping("queryBnbOrder")
+    public List<Map<String, Object>> queryBnbOrder(Integer bnbid){
+        return bnbinfoDao.queryBnbOrder(bnbid);
+    }
     //查询关联数据
     @RequestMapping("select")
     public List<Map<String,Object>> selectBnb(@RequestBody Map map){
+        List<Map<String, Object>> maps = bnbinfoDao.selectListB(map);
+        if(maps.isEmpty()){
+            map.replace("city","");
+            return bnbinfoDao.selectListB(map);
+        }
         return bnbinfoDao.selectListB(map);
     }
     //查询房源信息
     @RequestMapping("query")
     public List<Bnbinfo> query(){
-        return bnbinfoDao.selectAll();
+        return bnbinfoDao.selectLimit();
     }
     //根据主键查询
     @RequestMapping("queryId")
@@ -95,7 +115,7 @@ public class BnbinfoController {
                 String pikId = UUID.randomUUID().toString().replaceAll("-", "");
 //                System.out.println("xxx:"+pikId);
                 Path path = Paths.get(UPLOAD_FOLDER + s.getOriginalFilename().lastIndexOf(".")+ pikId + "." + fileExt);
-                System.out.println("xx:"+path);
+//                System.out.println("xx:"+path);
                 //如果没有files文件夹，则创建
                 if (!Files.isWritable(path)) {
                     Files.createDirectories(Paths.get(UPLOAD_FOLDER));
@@ -137,13 +157,14 @@ public class BnbinfoController {
     }
     //添加设施
     @RequestMapping("ptss")
-    public void ptss(@RequestBody String[] checklist ){
+    public void ptss(Integer uid,@RequestBody String[] checklist ){
         int bnbid=queryBnbid();
         bnbid=bnbid-1;
-
+        bnbinfoDao.upBnbUB(uid,bnbid);
         for (String s :
                 checklist) {
             bnbinfoDao.upSs(s,bnbid);
         }
+
     }
 }

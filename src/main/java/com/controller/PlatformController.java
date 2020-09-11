@@ -15,7 +15,8 @@ public class PlatformController {
     PlatformDao platformDao;
     //更改平台余额
     @RequestMapping("upFmoney")
-    public int upFmoney(Float money){
+    public int upFmoney(Float money,Integer oid){
+        platformDao.upOrders(oid);
         return platformDao.upPmoney(money);
     }
     //添加流水

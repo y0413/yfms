@@ -16,17 +16,19 @@ import org.apache.ibatis.annotations.Update;
 import tk.mybatis.mapper.common.Mapper;
 @org.apache.ibatis.annotations.Mapper
 public interface BnbinfoDao extends Mapper<Bnbinfo> {
-//    @Select("select b.*,r.rname,l.lnotes,h.hname,d.title " +
-//            "from bnbinfo as b " +
-//            "join rommtype as r " +
-//            "on b.rid=r.rid " +
-//            "join livable as l " +
-//            "on b.liva_id=l.liva_id " +
-//            "join house_type as h " +
-//            "on b.hid=h.hid " +
-//            "join describes as d " +
-//            "on b.did=d.did ")
-//    List<Bnbinfo>  select();
+    //查询预定日期
+    @Select("select * from orders where #{sttime} between starttime and sendtime and bnbid=#{bnbid} and state=0")
+    List<Map> selectOrYd(@Param("sttime") String sttime,@Param("bnbid") Integer bnbid);
+    //下架房源
+    @Update("update bnbinfo set bnbshelf=1 where bnbid=#{bnbid}")
+    int upBnbshelf(Integer bnbid);
+    //添加房源成功
+    @Update("update bnbinfo set uid=#{uid},bnbstate=0,bnbshelf=0 where bnbid=#{bnbid}")
+    int upBnbUB(@Param("uid") Integer uid,@Param("bnbid") Integer bnbid);
+    @Select("select * from bnbinfo b \n" +
+            "join orders o on b.bnbid=o.bnbid\n" +
+            "where b.bnbid=#{bnbid} and o.state=0")
+    List<Map<String,Object>> queryBnbOrder(Integer bnbid);
     @Update("update bnbinfo set did=${did} where bnbid=${bnbid}")
     int upDid(@Param("did") Integer did,@Param("bnbid") Integer bnbid);
     @Update("update id set bnbid=bnbid+1")
@@ -46,7 +48,8 @@ public interface BnbinfoDao extends Mapper<Bnbinfo> {
     @Select("select * from bnbinfo b join rommtype r on b.rid=r.rid join livable l on b.liva_id=l.liva_id\n" +
             "join house_type h on b.hid=h.hid join describes d on b.did=d.did where bnbid=#{bnbid}")
     Map<String,Object> queryBnbinfo(Integer bnbid);
-
+    @Select("select * from bnbinfo where bnbstate=0 and bnbshelf=0 limit 7 ")
+    List<Bnbinfo> selectLimit();
     @SelectProvider(type = SelectBnbinfo.class,method = "selectBnb")
     List<Map<String,Object>> selectListB(Map map);
     class SelectBnbinfo{
@@ -61,7 +64,7 @@ public interface BnbinfoDao extends Mapper<Bnbinfo> {
                     "join rommtype r on b.rid=r.rid " +
                     "join livable l on b.liva_id=l.liva_id\n" +
                     "join house_type h on b.hid=h.hid " +
-                    "join describes d on b.did=d.did where 1=1 ";
+                    "join describes d on b.did=d.did where 1=1 and bnbstate=0 and bnbshelf=0 ";
             if(!city.equals("")){
                 sql+=" and city='"+city+"'";
             }

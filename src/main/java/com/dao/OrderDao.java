@@ -21,13 +21,13 @@ public interface OrderDao {
 
     @Select("select * from users u \n" +
             "join bnbinfo b \n" +
-            "on u.bnbid = b.bnbid ")
+            "on u.uid = b.uid ")
     List<Map> query ();
 
     @Insert("insert into orders \n" +
-            "(order_num,uid,bnbname,createtime,order_price,sendtime,starttime) \n" +
+            "(order_num,state,uid,bnbname,createtime,order_price,sendtime,starttime,bnbid) \n" +
             "values \n" +
-            "(#{order_num},#{uid},#{bnbname},now(),#{order_price},#{sendtime},#{starttime}) ")
+            "(#{order_num},0,#{uid},#{bnbname},now(),#{order_price},#{sendtime},#{starttime},#{bnbid}) ")
     Integer addOrder(Orders orders);
 
     @Update("update platform set pmoney=pmoney+#{money}")
