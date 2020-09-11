@@ -25,6 +25,9 @@ public interface BnbinfoDao extends Mapper<Bnbinfo> {
     //添加房源成功
     @Update("update bnbinfo set uid=#{uid},bnbstate=0,bnbshelf=0 where bnbid=#{bnbid}")
     int upBnbUB(@Param("uid") Integer uid,@Param("bnbid") Integer bnbid);
+    //更改房客为房东
+    @Update("update users set state=0 where uid=#{uid}")
+    int upUstate(Integer uid);
     @Select("select * from bnbinfo b \n" +
             "join orders o on b.bnbid=o.bnbid\n" +
             "where b.bnbid=#{bnbid} and o.state=0")

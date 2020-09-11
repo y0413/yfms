@@ -93,14 +93,7 @@ public class UsersController {
         System.out.println(pteluid);
         return "1";
     }
-    @RequestMapping("queryUid")
-    public List<Map> queryUid(Integer uid){
-//        System.out.println("执行");
-        List<Map> users = usersDao.queryUid(uid);
-//        System.out.println(users);
-        System.out.println(111);
-        return usersDao.queryUid(uid);
-    }
+
     @Value("${prop.upload-folder}")
     private String UPLOAD_FOLDER;
     //图片上传

@@ -10,11 +10,9 @@ public class Orders {
     Integer bnbid;
     Integer uid;
     Date createtime;
-    String order_notes;
     Double order_price;
     Date sendtime;
     Date starttime;
-    Integer bnbid;
 
     public Integer getBnbid() {
         return bnbid;
