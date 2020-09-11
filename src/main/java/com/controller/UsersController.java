@@ -65,6 +65,7 @@ public class UsersController {
 //        System.out.println("执行");
         List<Map> users = usersDao.queryUid(uid);
 //        System.out.println(users);
+        System.out.println(111);
         return usersDao.queryUid(uid);
     }
     @Value("${prop.upload-folder}")

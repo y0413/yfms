@@ -21,7 +21,9 @@ public class AdminsController {
     roleDao roleDao;
     @RequestMapping("queryName")
     @ResponseBody
-    public List<Map> queryName(String account,String apwd){
+    public List<Map> queryName(String account,String apwd)
+    {
+        System.out.println(111);
         return adminsDao.queryName(account,apwd);
     }
     @RequestMapping("queryaccount")

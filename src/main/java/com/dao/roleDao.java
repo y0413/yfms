@@ -12,4 +12,5 @@ public interface roleDao extends Mapper<Role> {
     int roleAdd(@Param("auth_id") Integer auth_id, @Param("pid")Integer pid);
     @Delete("delete from role where pid=${pid}")
     int roleDele(@Param("pid")Integer pid);
+    int add();
 }

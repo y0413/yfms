@@ -34,7 +34,7 @@ public interface UsersDao extends Mapper<Users> {
     @Update("update users set ptel=#{ptel} where uid=#{uid}")
     int updatePic(@Param("ptel") String ptel,@Param("uid") Integer uid);
 
-
+        int add();
     //查询房源
     @Select("select * from users u \n" +
             "join bnbinfo b on u.bnbid=b.bnbid\n" +

@@ -29,7 +29,7 @@ public interface AdminsDao extends Mapper<Admins> {
             " on b.aid=a.aid where a.pid=1 ")
     List<Map> queryAll();
 //
-
+int add();
     @Select("SELECT * FROM authority WHERE auth_id in (SELECT auth_id FROM role  WHERE pid=${pid}) and auth_pid=${auth_pid}")
     List<Map<String,Object>> qxfps(@Param("pid")String pid,@Param("auth_pid") Integer auth_pid);
     @Select("select * from admins a left join admin_info b\n" +

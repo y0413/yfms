@@ -90,6 +90,7 @@ public class SMS {
     public int content(int mobile){
         System.out.println(mobile_code);
         if(mobile ==mobile_code){
+            System.out.println(111);
             return 1;
         }
         return 2;
