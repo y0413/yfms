@@ -10,6 +10,6 @@ import tk.mybatis.mapper.common.Mapper;
 public interface roleDao extends Mapper<Role> {
     @Insert("insert into role (auth_id,pid) values (${auth_id},${pid})")
     int roleAdd(@Param("auth_id") Integer auth_id, @Param("pid")Integer pid);
-    @Delete("delete from role where auth_id=${auth_id} and pid=${pid}")
-    int roleDele(@Param("auth_id") Integer auth_id, @Param("pid")Integer pid);
+    @Delete("delete from role where pid=${pid}")
+    int roleDele(@Param("pid")Integer pid);
 }

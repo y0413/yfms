@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 @CrossOrigin
 @RequestMapping("/test")
 @Controller
-public class test1 {
+public class SMS {
 @Resource
     UsersDao usersDao;
     String Url = "http://106.ihuyi.cn/webservice/sms.php?method=Submit";
@@ -42,8 +42,8 @@ public class test1 {
         method.setRequestHeader("ContentType","application/x-www-form-urlencoded;charset=GBK");
         String content = ("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
         NameValuePair[] data = {//提交短信
-                new NameValuePair("account", "C52517831"), //查看用户名是登录用户中心->验证码短信->产品总览->APIID
-                new NameValuePair("password", "bec4fd2c5c62ad6f81ed416b3126deea"),  //查看密码请登录用户中心->验证码短信->产品总览->APIKEY
+                new NameValuePair("account", "C32117758"), //查看用户名是登录用户中心->验证码短信->产品总览->APIID
+                new NameValuePair("password", "e0584c22d30543cae845e975ae02ec50 "),  //查看密码请登录用户中心->验证码短信->产品总览->APIKEY
                 //new NameValuePair("password", util.StringUtil.MD5Encode("密码")),
                 new NameValuePair("mobile", phone),
                 new NameValuePair("content", content),

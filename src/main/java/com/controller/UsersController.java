@@ -1,6 +1,9 @@
 package com.controller;
 
 import com.dao.UsersDao;
+import com.entity.Users;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,49 +22,9 @@ import java.util.UUID;
 public class UsersController {
     @Resource
     UsersDao usersDao;
-    //查看提现记录
-    @RequestMapping("queryTx")
-    public List<Map> queryTx(Integer uid){
-        return usersDao.queryTx(uid);
-    }
-    //添加提现记录
-    @RequestMapping("addTx")
-    public int addTx(Integer uid,Float total_price,Integer aid){
-        return usersDao.addTx(uid,total_price,aid);
-    }
-    //修改金额
-    @RequestMapping("upMoney")
-    public int upMoney(Float upmoney, Integer uid){
-        return usersDao.upMoney(upmoney,uid);
-    }
-    //修改支付
-    @RequestMapping("updateAcc")
-    public int updateAcc(String acc,String idcard,Integer uid){
-        return usersDao.updateAcc(acc,idcard,uid);
-    }
-    //查询支付
-    @RequestMapping("queryAcc")
-    public Map queryAcc(Integer uid){
-        return usersDao.queryAcc(uid);
-    }
-    @RequestMapping("queryBnb")
-    //查询房源
-    public List<Map> queryBnb(Integer uid){
-        return usersDao.queryBnb(uid);
-    }
-    @RequestMapping("queryUid")
-    public List<Map> queryUid(Integer uid){
-//        System.out.println("执行");
-        List<Map> users = usersDao.queryUid(uid);
-//        System.out.println(users);
-        return usersDao.queryUid(uid);
-    }
     @RequestMapping("queryName")
     public List<Map> queryName(String uname,String upwd){
-
-        List<Map> m =usersDao.queryName(uname,upwd);
-//        System.out.println(m);
-        return m;
+        return usersDao.queryName(uname,upwd);
     }
     @RequestMapping("adduser")
     public int adduser(String uname,String upwd){
@@ -77,8 +40,8 @@ public class UsersController {
     public int updatephoto(String photo,String uid){
         return usersDao.updatephoto(photo,uid);
     }@RequestMapping("updates")
-    public int updates(String usex,String truename,String idcard,String uid,String email,String address){
-        return usersDao.updates(usex,truename,idcard,email,address,uid);
+    public int updates(String usex,String truename,String email,String idcard,String uid){
+        return usersDao.updates(usex,truename,email,idcard,uid);
     }
     Integer pteluid=0;
     @RequestMapping("Uid")
@@ -86,6 +49,13 @@ public class UsersController {
         pteluid=uid;
         System.out.println(pteluid);
         return "1";
+    }
+    @RequestMapping("queryUid")
+    public List<Map> queryUid(Integer uid){
+//        System.out.println("执行");
+        List<Map> users = usersDao.queryUid(uid);
+//        System.out.println(users);
+        return usersDao.queryUid(uid);
     }
     @Value("${prop.upload-folder}")
     private String UPLOAD_FOLDER;

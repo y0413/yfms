@@ -3,6 +3,7 @@ package com.controller;
 import com.dao.AdminsDao;
 import com.dao.roleDao;
 import com.entity.Admins;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,13 +40,16 @@ public class AdminsController {
     @ResponseBody
     public List<Map> query(String aname){
         if(aname!=""){
-            System.out.println("安迪圳堵起");
             System.out.println("%"+aname+"%");
             return adminsDao.query("%"+aname+"%");
         }
         return adminsDao.queryAll();
     }
-
+    @RequestMapping("/queryaid")
+    @ResponseBody
+    public List<Map> queryaid(Integer aid){
+        return adminsDao.queryaid(aid);
+    }
     @RequestMapping("/update")
     @ResponseBody
     public int update(@RequestBody Admins a){
@@ -76,13 +80,19 @@ public class AdminsController {
     @ResponseBody
     public Integer roleA(String auth_id,Integer pid){
         String[] split = auth_id.split(",");
-        int count=1;
+        System.out.println(auth_id+"nj"+pid);
+        roleDao.roleDele(pid);
+        int count=0;
         for (int i=0;i<split.length;i++) {
             System.out.println(split[i]);
+
             int i1 = Integer.parseInt(split[i]);
-            roleDao.roleDele(i1,pid);
+            if(i1==10){
+                roleDao.roleAdd(0,0);
+            }
             count = roleDao.roleAdd(i1,pid);
         }
+        roleDao.roleAdd(10,pid);
         return count;
         //        for (int i=0;i<auth_id.length;i++){
 //            System.out.println(auth_id[i]);
@@ -96,5 +106,25 @@ public class AdminsController {
     @ResponseBody
     public List<Map> roleAmin(Integer pid){
         return adminsDao.roleAdmin(pid);
+    }
+    @RequestMapping("/selectAd_info")
+    @ResponseBody
+    public List<Map> selectAd_info(Integer aid){
+        return adminsDao.selectAd_info(aid);
+    }
+    @RequestMapping("/updateapwd")
+    @ResponseBody
+    public int updateapwd(String apwd,Integer aid){
+        return adminsDao.updateapwd(apwd,aid);
+    }
+    @RequestMapping("/insertad")
+    @ResponseBody
+    public int insertad(String aname,Integer aid,String asex,String atel,String address,String idcard){
+        return adminsDao.insertad(aname,aid,asex,atel,address,idcard);
+    }
+    @RequestMapping("/updateee")
+    @ResponseBody
+    public int updateee(String aname,String asex,String atel,String address,String idcard,Integer aid){
+        return adminsDao.updateee(aname,asex,atel,address,idcard,aid);
     }
 }

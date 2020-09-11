@@ -29,11 +29,11 @@ public interface UsersDao extends Mapper<Users> {
     int updateuname(@Param("uname")String uname,@Param("uid")String uid);
     @Update("update users set photo=#{photo} where uid=#{uid}")
     int updatephoto(@Param("photo")String photo,@Param("uid")String uid);
-    @Update("update users set usex=#{usex},truename=#{truename},idcard=#{idcard},email=#{email},address=#{address} where uid=#{uid}")
-    int updates(@Param("usex") String usex,@Param("truename")String truename,@Param("idcard")String idcard,@Param("email")String email,@Param("address")String address,@Param("uid")String uid);
-
+    @Update("update users set usex=#{usex},truename=#{truename},email=#{email},idcard=#{idcard} where uid=#{uid}")
+    int updates(@Param("usex") String usex,@Param("truename")String truename,@Param("email") String email,@Param("idcard")String idcard,@Param("uid")String uid);
     @Update("update users set ptel=#{ptel} where uid=#{uid}")
     int updatePic(@Param("ptel") String ptel,@Param("uid") Integer uid);
+
 
     //查询房源
     @Select("select * from users u \n" +
@@ -58,4 +58,5 @@ public interface UsersDao extends Mapper<Users> {
             "join account a on w.coll_mode=a.aid\n" +
             "where w.uid=#{uid}")
     List<Map> queryTx(Integer uid);
+
 }
