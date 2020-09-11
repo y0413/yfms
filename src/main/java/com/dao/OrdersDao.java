@@ -14,6 +14,7 @@ public interface OrdersDao extends tk.mybatis.mapper.common.Mapper<Orders> {
             "join users u on o.uid=u.uid \n" +
             "where o.uid=#{uid} and o.state=#{state} ")
     List<Map<String,Object>> queryOrders(@Param("uid") Integer uid,@Param("state") Integer state);
+
     @Select("select * from comments c \n" +
             "join users u on c.uid=u.uid \n" +
             "where c.uid=#{uid} ")

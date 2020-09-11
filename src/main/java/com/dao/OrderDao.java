@@ -4,6 +4,7 @@ import com.entity.Orders;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 import java.util.Map;
@@ -18,10 +19,19 @@ public interface OrderDao {
             "on o.uid = u.uid")
     List<Map> listAll();
 
+    @Select("select * from users u \n" +
+            "join bnbinfo b \n" +
+            "on u.bnbid = b.bnbid ")
+    List<Map> query ();
+
     @Insert("insert into orders \n" +
-            "(order_num,bnbid,uid,createtime,order_notes,order_price,order_people) \n" +
+            "(order_num,uid,bnbname,createtime,order_price,sendtime,starttime) \n" +
             "values \n" +
-            "(#{order_num},#{bnbid},#{uid},now(),#{order_notes},#{order_price},#{order_people}) ")
+            "(#{order_num},#{uid},#{bnbname},now(),#{order_price},#{sendtime},#{starttime}) ")
     Integer addOrder(Orders orders);
+
+    @Update("update platform set pmoney=pmoney+#{money}")
+    int upPmoney(Float money);
+
 
 }

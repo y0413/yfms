@@ -6,13 +6,14 @@ public class Orders {
     Integer oid;
     Integer Order_num;
     String state;
+    String bnbname;
     Integer bnbid;
     Integer uid;
     Date createtime;
     String order_notes;
     Double order_price;
-    Integer order_people;
-    String bnbname;
+    Date sendtime;
+    Date starttime;
 
     public Orders() {
     }
@@ -37,10 +38,40 @@ public class Orders {
         return state;
     }
 
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "oid=" + oid +
+                ", Order_num=" + Order_num +
+                ", state='" + state + '\'' +
+                ", bnbname='" + bnbname + '\'' +
+                ", uid=" + uid +
+                ", createtime=" + createtime +
+                ", order_price=" + order_price +
+                ", sendtime=" + sendtime +
+                ", starttime=" + starttime +
+                '}';
+    }
+
+    public Date getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(Date starttime) {
+        this.starttime = starttime;
+    }
+
     public void setState(String state) {
         this.state = state;
     }
 
+    public String getBnbname() {
+        return bnbname;
+    }
+
+    public void setBnbname(String bnbname) {
+        this.bnbname = bnbname;
+    }
     public Integer getBnbid() {
         return bnbid;
     }
