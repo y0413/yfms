@@ -33,15 +33,9 @@ public class Bnbinfo {
     Integer bnbstate;//房源添加是否成功
     Integer uid;
     Integer bnbshelf;//下架上架
-    Float money;
 
-    public Float getMoney() {
-        return money;
-    }
 
-    public void setMoney(Float money) {
-        this.money = money;
-    }
+
 
     public Integer getBnbstate() {
         return bnbstate;

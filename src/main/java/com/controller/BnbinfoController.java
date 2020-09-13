@@ -73,8 +73,8 @@ public class BnbinfoController {
     @RequestMapping("add")
     public Integer add(@RequestBody Bnbinfo bnb){
         bnb.setBnbid(queryBnbid());
-        String money="0";
-        bnb.setMoney(Float.parseFloat(money));
+       // String money="0";
+        //bnb.setMoney(Float.parseFloat(money));
         int num=bnbinfoDao.insert(bnb);
         if(num>0){
             //自增
